@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import Firebase
 
 class LogInController: UIViewController {
     
@@ -58,14 +58,14 @@ class LogInController: UIViewController {
         nameTextField.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
         nameTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/3).isActive = true
         
-         //separetor
+        //separetor
         nameSeparatorView.leftAnchor.constraint(equalTo: inputsContainerView.leftAnchor).isActive = true
         nameSeparatorView.topAnchor.constraint(equalTo: nameTextField.bottomAnchor).isActive = true
         nameSeparatorView.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
         nameSeparatorView.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
         
         
-        //email 
+        //email
         //name text field
         emailTextField.leftAnchor.constraint(equalTo: inputsContainerView.leftAnchor, constant: 12).isActive = true
         emailTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor).isActive =  true
@@ -106,12 +106,12 @@ class LogInController: UIViewController {
     
     
     let inputsContainerView : UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.white
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 8
-        view.layer.masksToBounds = true
-        return view
+        let containerView = UIView()
+        containerView.backgroundColor = UIColor.white
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.layer.cornerRadius = 8
+        containerView.layer.masksToBounds = true
+        return containerView
     }()
     
     let loginRegistration: UIButton = {
@@ -119,10 +119,46 @@ class LogInController: UIViewController {
         button.setTitle("Registration", for: .normal)
         button.layer.cornerRadius = 4
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        button.backgroundColor = UIColor.gray
+        button.backgroundColor = UIColor.rgb(red: 61, green: 100, blue: 161)
         button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
+        
         return button
     }()
+    
+    func handleRegister(){
+        guard let email  = emailTextField.text,  let password = passwordTextField.text, let name = nameTextField.text else {
+            return
+        }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (user: User?, error) in
+            
+            if error != nil {
+                
+                print(error!)
+                return
+            }
+            
+            // save data
+            var ref: DatabaseReference
+            ref = Database.database().reference(fromURL: "https://chatapp-7bf81.firebaseio.com/")
+            let userReference = ref.child("users").child((user?.uid)!)
+            let valus = ["name": name, "email": email, "password": password]
+            userReference.updateChildValues(valus, withCompletionBlock: { (error, ref) in
+                if error != nil {
+                    print(error!)
+                    return
+                }                
+                print("Save user")
+            })
+            
+        }
+      
+        
+        
+        print(123)
+    }
     
     
     let nameTextField : UITextField = {
@@ -159,6 +195,6 @@ class LogInController: UIViewController {
         textField.isSecureTextEntry = true
         return textField
     }()
- 
+    
 }
 
