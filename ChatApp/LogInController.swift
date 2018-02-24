@@ -21,22 +21,71 @@ class LogInController: UIViewController {
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegistration)
         view.addSubview(profileImageView)
+        view.addSubview(loginRegistrationSegmentedControl)
+        
         setupInputsContainerView()
         setuploginRegistration()
         setupProfileImageView()
+        setLoginRegistrationSegmentedControl()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
+    
+    
+    func handleRegister(){
+        guard let email  = emailTextField.text,  let password = passwordTextField.text, let name = nameTextField.text else {
+            return
+        }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (user: User?, error) in
+            
+            if error != nil {
+                
+                print(error!)
+                return
+            }
+            
+            // save data
+            var ref: DatabaseReference
+            ref = Database.database().reference(fromURL: "https://chatapp-7bf81.firebaseio.com/")
+            let userReference = ref.child("users").child((user?.uid)!)
+            let valus = ["name": name, "email": email, "password": password]
+            userReference.updateChildValues(valus, withCompletionBlock: { (error, ref) in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                print("Save user")
+            })
+            
+        }
+        
+        
+        
+        print(123)
+    }
+    
+    
+    func setLoginRegistrationSegmentedControl(){
+        loginRegistrationSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive  = true
+        loginRegistrationSegmentedControl.bottomAnchor.constraint(equalTo: inputsContainerView.topAnchor, constant: -12).isActive = true
+        loginRegistrationSegmentedControl.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
+        loginRegistrationSegmentedControl.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    }
+    
+    
     func setupProfileImageView(){
         profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        profileImageView.bottomAnchor.constraint(equalTo: inputsContainerView.topAnchor, constant: -12).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        profileImageView.bottomAnchor.constraint(equalTo: loginRegistrationSegmentedControl.topAnchor, constant: -12).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 140).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
     }
+   
+ 
     
     func setupInputsContainerView() {
         
@@ -127,40 +176,6 @@ class LogInController: UIViewController {
         return button
     }()
     
-    func handleRegister(){
-        guard let email  = emailTextField.text,  let password = passwordTextField.text, let name = nameTextField.text else {
-            return
-        }
-        
-        Auth.auth().createUser(withEmail: email, password: password) { (user: User?, error) in
-            
-            if error != nil {
-                
-                print(error!)
-                return
-            }
-            
-            // save data
-            var ref: DatabaseReference
-            ref = Database.database().reference(fromURL: "https://chatapp-7bf81.firebaseio.com/")
-            let userReference = ref.child("users").child((user?.uid)!)
-            let valus = ["name": name, "email": email, "password": password]
-            userReference.updateChildValues(valus, withCompletionBlock: { (error, ref) in
-                if error != nil {
-                    print(error!)
-                    return
-                }                
-                print("Save user")
-            })
-            
-        }
-      
-        
-        
-        print(123)
-    }
-    
-    
     let nameTextField : UITextField = {
         let textField = UITextField()
         textField.placeholder = "Name"
@@ -195,6 +210,18 @@ class LogInController: UIViewController {
         textField.isSecureTextEntry = true
         return textField
     }()
+
+    let loginRegistrationSegmentedControl: UISegmentedControl = {
+        let sc = UISegmentedControl(items: ["Login", "Registration"])
+        sc.translatesAutoresizingMaskIntoConstraints = false
+        sc.tintColor = UIColor.white
+        sc.addTarget(self, action: #selector(handleLoginRegisterChange), for: .valueChanged)
+        return sc
+    }()
     
+    func handleLoginRegisterChange(){
+        let title = loginRegistrationSegmentedControl.titleForSegment(at: loginRegistrationSegmentedControl.selectedSegmentIndex)
+        loginRegistration.setTitle(title, for: .normal)
+    }
 }
 
