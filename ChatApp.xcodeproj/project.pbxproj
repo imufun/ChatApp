@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		A14593722043206F0066B287 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A14593712043206F0066B287 /* GoogleService-Info.plist */; };
 		A183BEDE20415DF600139055 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183BEDD20415DF600139055 /* AppDelegate.swift */; };
-		A183BEE020415DF600139055 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183BEDF20415DF600139055 /* ViewController.swift */; };
+		A183BEE020415DF600139055 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183BEDF20415DF600139055 /* MessageController.swift */; };
 		A183BEE320415DF600139055 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A183BEE120415DF600139055 /* Main.storyboard */; };
 		A183BEE520415DF600139055 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A183BEE420415DF600139055 /* Assets.xcassets */; };
 		A183BEE820415DF600139055 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A183BEE620415DF600139055 /* LaunchScreen.storyboard */; };
 		A183BEF3204161B200139055 /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183BEF2204161B200139055 /* LogInController.swift */; };
 		A183BEF62041677C00139055 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183BEF52041677C00139055 /* Utils.swift */; };
+		A1AD77342049C2E0001481D5 /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD77332049C2E0001481D5 /* NewMessageController.swift */; };
 		A409ABF9DE7DFA409D18F59C /* Pods_ChatApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7A9981EF1EDB57AC0F491A /* Pods_ChatApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,13 +25,14 @@
 		A14593712043206F0066B287 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "/Users/sinbad/Downloads/GoogleService-Info.plist"; sourceTree = "<absolute>"; };
 		A183BEDA20415DF600139055 /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A183BEDD20415DF600139055 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A183BEDF20415DF600139055 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A183BEDF20415DF600139055 /* MessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
 		A183BEE220415DF600139055 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A183BEE420415DF600139055 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A183BEE720415DF600139055 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A183BEE920415DF600139055 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A183BEF2204161B200139055 /* LogInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
 		A183BEF52041677C00139055 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		A1AD77332049C2E0001481D5 /* NewMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
 		B60582BD9B57B63A0A1C0163 /* Pods-ChatApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatApp/Pods-ChatApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,7 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				A183BEF2204161B200139055 /* LogInController.swift */,
-				A183BEDF20415DF600139055 /* ViewController.swift */,
+				A183BEDF20415DF600139055 /* MessageController.swift */,
+				A1AD77332049C2E0001481D5 /* NewMessageController.swift */,
 			);
 			name = Contoller;
 			sourceTree = "<group>";
@@ -244,7 +247,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A183BEE020415DF600139055 /* ViewController.swift in Sources */,
+				A1AD77342049C2E0001481D5 /* NewMessageController.swift in Sources */,
+				A183BEE020415DF600139055 /* MessageController.swift in Sources */,
 				A183BEF3204161B200139055 /* LogInController.swift in Sources */,
 				A183BEDE20415DF600139055 /* AppDelegate.swift in Sources */,
 				A183BEF62041677C00139055 /* Utils.swift in Sources */,
