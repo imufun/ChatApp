@@ -35,18 +35,20 @@ class LogInController: UIViewController {
     
     
     
-   
     
     
     
-    let profileImageView: UIImageView = {
+    
+    lazy var profileImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "ac")
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleProfileImageView)))
+        image.isUserInteractionEnabled = true
         return image
     }()
     
-    
+ 
     let inputsContainerView : UIView = {
         let containerView = UIView()
         containerView.backgroundColor = UIColor.white
@@ -129,7 +131,7 @@ class LogInController: UIViewController {
             if let  error = error {
                 print(error)
                 return
-            } 
+            }
             print("You have successfully login")
             self.dismiss(animated: true, completion: nil)
         }
@@ -167,11 +169,11 @@ class LogInController: UIViewController {
         
         print(123)
     }
-  
+    
     
     func handleLoginRegisterChange(){
         let title = loginRegistrationSegmentedControl.titleForSegment(at: loginRegistrationSegmentedControl.selectedSegmentIndex)
-       loginRegistration.setTitle(title, for: UIControlState())
+        loginRegistration.setTitle(title, for: UIControlState())
         
         //
         

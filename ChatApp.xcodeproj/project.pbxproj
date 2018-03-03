@@ -17,6 +17,7 @@
 		A183BEF62041677C00139055 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183BEF52041677C00139055 /* Utils.swift */; };
 		A1AD77342049C2E0001481D5 /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD77332049C2E0001481D5 /* NewMessageController.swift */; };
 		A1AD77372049D3E5001481D5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD77362049D3E5001481D5 /* User.swift */; };
+		A1AD7739204A564C001481D5 /* LoginController + handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD7738204A564C001481D5 /* LoginController + handler.swift */; };
 		A409ABF9DE7DFA409D18F59C /* Pods_ChatApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7A9981EF1EDB57AC0F491A /* Pods_ChatApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		A183BEF52041677C00139055 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A1AD77332049C2E0001481D5 /* NewMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
 		A1AD77362049D3E5001481D5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A1AD7738204A564C001481D5 /* LoginController + handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginController + handler.swift"; sourceTree = "<group>"; };
 		B60582BD9B57B63A0A1C0163 /* Pods-ChatApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatApp/Pods-ChatApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +109,7 @@
 				A183BEF2204161B200139055 /* LogInController.swift */,
 				A183BEDF20415DF600139055 /* MessageController.swift */,
 				A1AD77332049C2E0001481D5 /* NewMessageController.swift */,
+				A1AD7738204A564C001481D5 /* LoginController + handler.swift */,
 			);
 			name = Contoller;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				A1AD77372049D3E5001481D5 /* User.swift in Sources */,
 				A183BEF3204161B200139055 /* LogInController.swift in Sources */,
 				A183BEDE20415DF600139055 /* AppDelegate.swift in Sources */,
+				A1AD7739204A564C001481D5 /* LoginController + handler.swift in Sources */,
 				A183BEF62041677C00139055 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
