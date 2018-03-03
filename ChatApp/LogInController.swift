@@ -136,39 +136,7 @@ class LogInController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
-    func handleRegister(){
-        guard let email  = emailTextField.text,  let password = passwordTextField.text, let name = nameTextField.text else {
-            return
-        }
-        
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            
-            if error != nil {
-                
-                print(error!)
-                return
-            }
-            
-            // save data
-            var ref: DatabaseReference
-            ref = Database.database().reference(fromURL: "https://chatapp-7bf81.firebaseio.com/")
-            let userReference = ref.child("users").child((user?.uid)!)
-            let valus = ["name": name, "email": email, "password": password]
-            userReference.updateChildValues(valus, withCompletionBlock: { (error, ref) in
-                if let error = error {
-                    print(error)
-                    return
-                }
-                self.dismiss(animated: true, completion: nil)
-                print("Save user")
-            })
-            
-        }
-        
-        
-        
-        print(123)
-    }
+   
     
     
     func handleLoginRegisterChange(){

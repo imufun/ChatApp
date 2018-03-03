@@ -7,6 +7,8 @@
 //
 
 import UIKit
+
+import Firebase
 extension LogInController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     
@@ -45,6 +47,73 @@ extension LogInController: UIImagePickerControllerDelegate, UINavigationControll
         print("Cancle")
         dismiss(animated: true, completion: nil)
         
+    }
+    
+    
+    
+    ///registration
+ 
+    
+    
+    func handleRegister(){
+        guard let email  = emailTextField.text,  let password = passwordTextField.text, let name = nameTextField.text else {
+            return
+        }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+            
+            if error != nil {
+                
+                print(error!)
+                return
+            }
+            
+            guard let uid = user?.uid else {
+                return
+            }
+            
+            // save data
+            //let storageRef = Storage.storage(url:"gs://chatapp-7bf81.appspot.com/")
+            let storage = Storage.storage()
+            let storageRef = storage.reference().child("Icon-Small")
+            if let uploadData = UIImagePNGRepresentation(self.profileImageView.image!){
+                storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                    if error != nil {
+                        print(error!)
+                        return
+                    }
+                    
+                    if let profileImageUrl =   metadata?.downloadURL()?.absoluteURL  {
+                        let values = ["name": name, "email": email, "password": password,  "profileImageUrl": profileImageUrl]
+                        self.registerUserIntoDatabaseWithUIID(uid: uid, values: values)
+                    }
+                   
+                    print(metadata!)
+                })
+            }
+            
+         
+ 
+            
+        }
+        print(123)
+    }
+
+    private func registerUserIntoDatabaseWithUIID(uid: String, values: [String: AnyObject]){
+        
+        
+        var ref: DatabaseReference
+        ref = Database.database().reference(fromURL: "https://chatapp-7bf81.firebaseio.com/")
+        let userReference = ref.child("users").child((user?.uid)!)
+       
+        userReference.updateChildValues(valus, withCompletionBlock: { (error, ref) in
+            if let error = error {
+                print(error)
+                return
+            }
+            self.dismiss(animated: true, completion: nil)
+            print("Save user")
+        })
     }
     
 }
