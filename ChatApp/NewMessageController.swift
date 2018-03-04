@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-
 class NewMessageController: UITableViewController {
 
     
@@ -53,22 +52,6 @@ class NewMessageController: UITableViewController {
                     }
                 }
             })
-            
-            
-            
-//            if let dictonary = snapshot.value as? [String: AnyObject] {
-//                let user = User()
-//                user.setValuesForKeys(dictonary)
-//                self.users.append(user)
-//                
-//                
-//                DispatchQueue.main.async {
-//                    self.tableView.reloadData()
-//                }
-//                
-//            }
-            
-            
         }, withCancel: { (nil) in
             
         })
@@ -82,11 +65,18 @@ class NewMessageController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-       let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+       let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! UserCell
         //cell.textLabel?.text = "dfsdfsd"
        let user = users[indexPath.row]
         cell.textLabel?.text =  user.name
         cell.detailTextLabel?.text = user.email
+        
+        //cell.imageView?.image = UIImage(named: "ac")
+        
+        if let profileImageUrl = user.profileImgeUrl {
+          cell.profileImgView.loadImageUsingWithUrlString(urlString: profileImageUrl)
+        }
+        
         return cell
     }
  
@@ -94,17 +84,39 @@ class NewMessageController: UITableViewController {
 
 
 class UserCell: UITableViewCell {
+    
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        textLabel?.frame = CGRect(x: 56, y: textLabel!.frame.origin.y, width: textLabel!.frame.width, height: textLabel!.frame.height)
+        detailTextLabel?.frame = CGRect(x: 56, y: detailTextLabel!.frame.origin.y, width: detailTextLabel!.frame.width, height: detailTextLabel!.frame.height)
+    }
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+        
+        addSubview(profileImgView)
+        profileImgView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true
+        profileImgView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        profileImgView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        profileImgView.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
+    
+    let profileImgView: UIImageView = {
+        let imageViewpic = UIImageView()
+//        imageViewpic.image = UIImage(named: "ac")
+        imageViewpic.layer.cornerRadius = 20
+        imageViewpic.layer.masksToBounds = true
+        imageViewpic.translatesAutoresizingMaskIntoConstraints = false
+        return imageViewpic
+    }()
+   
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-
-
 
 
 

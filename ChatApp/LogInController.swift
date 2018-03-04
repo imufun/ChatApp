@@ -32,12 +32,7 @@ class LogInController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
-    
-    
-    
-    
-    
+
     
     lazy var profileImageView: UIImageView = {
         let image = UIImageView()

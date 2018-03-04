@@ -12,5 +12,5 @@ target 'ChatApp' do
   pod 'Firebase/Database'
   pod 'Firebase/Messaging'
   pod 'Firebase/Crash'
-  pod 'Firebase/Performance'
+  pod 'Firebase/Performance' 
 end

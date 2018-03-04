@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChatApp/NewMessageController.swift"
-            timestampString = "541740404.311193"
+            timestampString = "541787008.407186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChatApp/NewMessageController.swift"
-            timestampString = "541740404.311193"
+            timestampString = "541787008.407186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "NewMessageController"
             landmarkType = "3">
          </BreakpointContent>
@@ -58,12 +58,12 @@
                   moduleName = "ChatApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/dev/IOS/ChatApp/ChatApp/LoginController%20+%20handler.swift"
-                  timestampString = "541747105.641389"
+                  timestampString = "541878881.34703"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
                   endingLineNumber = "33"
-                  offsetFromSymbolStart = "415">
+                  offsetFromSymbolStart = "397">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -73,12 +73,12 @@
                   moduleName = "ChatApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/dev/IOS/ChatApp/ChatApp/LoginController%20+%20handler.swift"
-                  timestampString = "541747105.647791"
+                  timestampString = "541878881.34957"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
                   endingLineNumber = "33"
-                  offsetFromSymbolStart = "452">
+                  offsetFromSymbolStart = "446">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -102,49 +102,81 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChatApp/LoginController + handler.swift"
-            timestampString = "541746849.523505"
+            timestampString = "541750359.844753"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "handleRegister()"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "registerUserIntoDatabaseWithUIID(uid:values:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "ChatApp.LogInController.(handleRegister () -&gt; ()).(closure #1)"
+                  symbolName = "ChatApp.LogInController.(registerUserIntoDatabaseWithUIID in _1990E18E1350515BA4E1FC12D545E4A3) (uid : Swift.String, values : Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;) -&gt; ()"
                   moduleName = "ChatApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/dev/IOS/ChatApp/ChatApp/LoginController%20+%20handler.swift"
-                  timestampString = "541747105.690901"
+                  timestampString = "541751337.526157"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "1394">
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "550">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "ChatApp.LogInController.(handleRegister () -&gt; ()).(closure #1).(closure #1)"
+                  symbolName = "ChatApp.LogInController.((registerUserIntoDatabaseWithUIID in _1990E18E1350515BA4E1FC12D545E4A3) (uid : Swift.String, values : Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;) -&gt; ()).(closure #1)"
                   moduleName = "ChatApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/dev/IOS/ChatApp/ChatApp/LoginController%20+%20handler.swift"
-                  timestampString = "541747105.693994"
+                  timestampString = "541751337.530113"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "19">
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "23">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChatApp/Extension.swift"
+            timestampString = "541877637.359733"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "UIImageView"
+            landmarkType = "4">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChatApp/Extension.swift"
+            timestampString = "541878880.124523"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "loadImageUsingWithUrlString(urlString:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

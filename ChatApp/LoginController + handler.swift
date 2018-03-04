@@ -25,12 +25,12 @@ extension LogInController: UIImagePickerControllerDelegate, UINavigationControll
         
         var selectedImgaeFormPicker:  UIImage?
         
-        if let editImage = info["UIImagePickerControllerEditedImage"]  {
+        if let editImage = info["UIImagePickerControllerEditedImage"]  as? UIImage{
             
-            selectedImgaeFormPicker = editImage  as? UIImage
+            selectedImgaeFormPicker = editImage
             
             ///print((editImage as AnyObject).size)
-        } else if let originalImage = info["UIImagePickerControllerOriginalImage"] {
+        } else if let originalImage = info["UIImagePickerControllerOriginalImage"]   {
             selectedImgaeFormPicker = originalImage as? UIImage
             
             //print((originalImage as AnyObject).size)
@@ -75,7 +75,10 @@ extension LogInController: UIImagePickerControllerDelegate, UINavigationControll
             // save data
             //let storageRef = Storage.storage(url:"gs://chatapp-7bf81.appspot.com/")
             let storage = Storage.storage()
-            let storageRef = storage.reference().child("Icon-Small")
+            
+            let imagNmae = NSUUID().uuidString
+            
+            let storageRef = storage.reference().child("\(imagNmae).png")
             if let uploadData = UIImagePNGRepresentation(self.profileImageView.image!){
                 storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
                     if error != nil {
@@ -83,30 +86,25 @@ extension LogInController: UIImagePickerControllerDelegate, UINavigationControll
                         return
                     }
                     
-                    if let profileImageUrl =   metadata?.downloadURL()?.absoluteURL  {
-                        let values = ["name": name, "email": email, "password": password,  "profileImageUrl": profileImageUrl]
-                        self.registerUserIntoDatabaseWithUIID(uid: uid, values: values)
+                    if let profileImageUrl =   metadata?.downloadURL()?.absoluteString  {
+                        let values = ["name": name, "email": email, "password": password,  "profileImageUrl": profileImageUrl] as [String : Any]
+                        self.registerUserIntoDatabaseWithUIID(uid: uid, values: values as [String : AnyObject])
                     }
                    
                     print(metadata!)
                 })
             }
-            
-         
- 
-            
         }
         print(123)
     }
 
     private func registerUserIntoDatabaseWithUIID(uid: String, values: [String: AnyObject]){
-        
-        
+       
         var ref: DatabaseReference
         ref = Database.database().reference(fromURL: "https://chatapp-7bf81.firebaseio.com/")
-        let userReference = ref.child("users").child((user?.uid)!)
+        let userReference = ref.child("users").child((uid))
        
-        userReference.updateChildValues(valus, withCompletionBlock: { (error, ref) in
+        userReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
             if let error = error {
                 print(error)
                 return

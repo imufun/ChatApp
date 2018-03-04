@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A13524E2204C635B00678155 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13524E1204C635B00678155 /* Extension.swift */; };
 		A14593722043206F0066B287 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A14593712043206F0066B287 /* GoogleService-Info.plist */; };
 		A183BEDE20415DF600139055 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183BEDD20415DF600139055 /* AppDelegate.swift */; };
 		A183BEE020415DF600139055 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183BEDF20415DF600139055 /* MessageController.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		5BD07F68D9853F68647C2EE0 /* Pods-ChatApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatApp/Pods-ChatApp.debug.xcconfig"; sourceTree = "<group>"; };
 		8B7A9981EF1EDB57AC0F491A /* Pods_ChatApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A13524E1204C635B00678155 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		A14593712043206F0066B287 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "/Users/sinbad/Downloads/GoogleService-Info.plist"; sourceTree = "<absolute>"; };
 		A183BEDA20415DF600139055 /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A183BEDD20415DF600139055 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A13524E0204C633A00678155 /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				A13524E1204C635B00678155 /* Extension.swift */,
+			);
+			name = helper;
+			sourceTree = "<group>";
+		};
 		A183BED120415DF600139055 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +100,7 @@
 		A183BEDC20415DF600139055 /* ChatApp */ = {
 			isa = PBXGroup;
 			children = (
+				A13524E0204C633A00678155 /* helper */,
 				A1AD77352049D3CD001481D5 /* Model */,
 				A183BEF4204161BE00139055 /* Contoller */,
 				A183BEDD20415DF600139055 /* AppDelegate.swift */,
@@ -268,6 +279,7 @@
 				A183BEDE20415DF600139055 /* AppDelegate.swift in Sources */,
 				A1AD7739204A564C001481D5 /* LoginController + handler.swift in Sources */,
 				A183BEF62041677C00139055 /* Utils.swift in Sources */,
+				A13524E2204C635B00678155 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
